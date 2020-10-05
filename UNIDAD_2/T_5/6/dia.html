@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dia</title>
+
+    <script>
+//Escribe un programa que pida al usuario un día de la semana y que muestre por consola el día siguiente. 
+//Si se introduce un valor que no corresponda a un día de la semana, se le mostrará un mensaje al usuario.
+
+        function dias(dia){
+            dia=parseInt(dia);
+            switch(dia){
+                case 1:
+                    console.log("Mañana es martes.");
+                    break;
+                case 2:
+                    console.log("Mañana es miércoles.");
+                    break;
+                case 3:
+                    console.log("Mañana es jueves.");
+                    break;
+                case 4:
+                    console.log("Mañana es viernes.");
+                    break;
+                case 5:
+                    console.log("Mañana es sábado.");
+                    break;
+                case 6:
+                    console.log("Mañana es domingo.");
+                    break;
+                case 7:
+                    console.log("Mañana es lunes.");
+                    break;
+                default:
+                    console.log("ERROR");
+                    break;
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+    <span>Introduce un día de la semana: <br>1.Lunes, <br>2.Martes, 
+        <br>3.Miércoles, <br>4.Jueves, <br>5.Viernes, <br>6.Sábado, <br>7.Domingo</span>
+		<br/>
+		<input type= "text" id= 'txtdia' value=""/>
+		<br/>
+		<input type="button" onclick = "dias(document.getElementById('txtdia').value);" value = 'Pulsar'>
+</body>
+</html>

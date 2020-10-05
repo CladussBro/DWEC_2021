@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejemplo for-in</title>
+
+    <script type="text/javascript">
+//Recorre mediante for-in una variable llamada texto que representa a la cadena “ejemplo”.
+//¿Qué resultados obtenemos al ejecutar?¿Qué conclusión podemos extraer?
+//Podemos observar que recorre la palabra y la muestra en la pantalla.
+
+    function myFunction() {
+    var t = {world:"ejemplo"}; 
+    
+    var texto = "";
+    var x;
+    for (x in t) {
+        texto += t[x] + " ";
+    }
+    document.getElementById("demo").innerHTML = texto;
+    }
+
+    </script>
+
+</head>
+<body>
+    <p>Recorre mediante for-in una variable llamada texto que representa a la cadena “ejemplo”.
+        <br>
+        ¿Qué resultados obtenemos al ejecutar?¿Qué conclusión podemos extraer?
+    </p>
+
+    <button onclick="myFunction()">Pulsa</button>
+    <p id="demo"></p>
+</body>
+</html>

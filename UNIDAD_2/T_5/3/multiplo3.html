@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>múltiplos de  3</title>
+
+    <script type="text/javascript">
+//Crear un bucle desde 1 hasta 500 donde se muestre en consola únicamente los números múltiplos de 3 y 
+//el  número de números que no son primos. Nota: Aplicar modulo (%)
+
+        function multiplo(num,multiplo) {
+            resto = num % multiplo;
+            if(resto==0)
+                return true;
+            else
+                return false;
+        }   
+
+        var multip_3 = [];
+
+        for (var i = 1; i < 500; i++) {
+            if(multiplo(i,3))
+                multip_3.push(i);
+        }
+        console.log("Los múltiplos de 3 son: "+multip_3);
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
