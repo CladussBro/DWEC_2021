@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Entregable</title>
+
+    <script>
+        var num = prompt("Introduce un número ", "");
+        var intentos=0;
+        var aleatorio=parseInt(Math.random() * (101 - 1) + 1);
+        //alert(aleatorio);
+
+        while(num!=aleatorio) {
+            intentos++;
+            if(num==""){
+                num=confirm("Ha salido del juego. ¿Quiere volver a jugar?");
+                if(num==true){
+                    location.reload();
+                }else{
+                    alert("Adiós.");
+                }
+            }
+           if(num>aleatorio){
+            num =  parseInt(prompt("El número introducido es mayor que el número generado aleatoriamente. Introduce otro número."));
+           }else if(num<aleatorio){
+            num =  parseInt(prompt("El número introducido es menor que el número generado aleatoriamente. Introduce otro número."));  
+           }
+        }
+
+        if(num==aleatorio){
+            num=confirm("Ha acertado con un total de "+intentos+" veces. ¿Quiere volver a jugar?");
+            if(num==true){
+                location.reload();
+            }else{
+                alert("Adiós.");
+            }
+        }
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
