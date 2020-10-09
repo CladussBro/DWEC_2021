@@ -1,9 +1,9 @@
-function validacion() {
-    var numero
-    var letr
-    var letra
-    var expresion_regular_dni
-    var dni = document.getElementById("dni").value
+function validaDNI() {
+    var numero;
+    var letr;
+    var letra;
+    var expresion_regular_dni;
+    var dni = document.getElementById("dni").value;
     
     expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
     
@@ -14,14 +14,14 @@ function validacion() {
         letra='TRWAGMYFPDXBNJZSQVHLCKE';
         letra=letra.substring(numero,numero+1);
         if (letra!=letr.toUpperCase()) {
-        alert("Dni erróneo, la letra del NIF no se corresponde");
+            alert("Dni erróneo, la letra del NIF no se corresponde");
         }else{
-        alert("Dni correcto");
+            alert("Dni correcto");
         }
     }else{
         alert("Dni erróneo, formato no válido");
     }
 
     }
-  
+    console.log(validaDNI);
  
