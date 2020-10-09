@@ -1,9 +1,9 @@
 function validaDNI() {
-    var numero;
-    var letr;
-    var letra;
-    var expresion_regular_dni;
-    var dni = document.getElementById("dni").value;
+    let numero;
+    let letr;
+    let letra;
+    let expresion_regular_dni;
+    let dni = document.getElementById("dni").value;
     
     expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
     
