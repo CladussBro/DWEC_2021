@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>T3</title>
     <script type="text/javascript" src="3.js"></script>
     <style>
         form{
@@ -17,9 +17,9 @@
 <body>
     <form action="" method="POST" id="formulario">
         <label for="nombre">Nombre del disco:</label><br>
-        <input type="text" id="nombre" name="nombre" value="Nombre..."><br>
+        <input type="text" id="nombre" name="nombre" value="Nombre..." required><br>
         <label for="nombre">Grupo o cantante:</label><br>
-        <input type="text" id="nombre" name="nombre" value="Grupo o el cantante..."><br>
+        <input type="text" id="grupo" name="nombre" value="Grupo o el cantante..." required><br>
         <label for="anio">Año:</label><br>
         <input type="text" id="anio" name="anio" value="Año..."><br>
         <label for="tipo">Tipo:</label><br>
@@ -32,14 +32,11 @@
         <label for="local">Localización:</label><br>
         <input type="text" id="local" name="local" value="Localización..."><br>
         <label for="prest">Prestado:</label><br>
-        <input type="text" id="prest" name="prest" value="Prestado o no..."><br><br>
-        <select name="tipo" id="tipo">
-            <option value="rock">Rock</option>
-            <option value="pop">Pop</option>
-            <option value="punk">Punk</option>
-            <option value="indie">Indie</option>
-        </select><br>
-        <input type="submit" value="Submit">
+        <select name="prestado" id="prest">
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+        </select><br><br>
+        <input type="submit" value="Submit" id="submit">
     </form>
 </body>
 </html>

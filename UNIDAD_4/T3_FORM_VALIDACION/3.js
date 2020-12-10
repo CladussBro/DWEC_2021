@@ -1,77 +1,46 @@
-let formulario = document.getElementById("miFormulario");
-
-window.onload = iniciar; //Sin paréntesis
-
-function iniciar() {
-  document.getElementById("enviar").addEventListener("click", validar, false);
+window.onload = function() {
+  console.log('onload');
+  document.getElementById('submit').addEventListener('click', validar);
 }
 
-function campo20(elemento) {
-  limpiarError(elemento);
-  if (elemento.value === "" || elemento.value.length !== 20) {
-    alert(
-      "El campo " +
-        elemento.id +
-        " no puede estar vacío y debe contener 20 caracteres"
-    );
-    error(elemento);
-    return false;
-  }
-  return true;
-}
-
-function validaNombre() {
-  let elemento = document.getElementById("nombre");
-  return campo20(elemento);
-}
-
-function validaCantante() {
-  let elemento = document.getElementById("cantante");
-  return campo20(elemento);
-}
-
-function validaAno() {
-  let elemento = document.getElementById("ano");
-  limpiarError(elemento);
-  if (elemento.value === "" || isNaN(elemento.value)) {
-    alert("El campo año tiene que ser numérico y no puede estar vacío");
-    error(elemento);
-    return false;
-  }
-  return true;
-}
-
-function validaLoc() {
-  let elemento = document.getElementById("loc");
-  limpiarError(elemento);
-  if (isNaN(elemento.value)) {
-    alert("El campo localización tiene que ser numérico");
-    error(elemento);
-    return false;
-  }
-  return true;
-}
-
-function validar(e) {
-  if (
-    validaNombre() &&
-    validaCantante() &&
-    validaAno() &&
-    validaLoc() &&
-    confirm("Pulsa aceptar si deseas enviar el formulario")
-  ) {
-    return true;
+let validar = () => {
+  if(campo20() && validaAnyo() && validaLocalizacion()) {
+      alert('Valida');
   } else {
-    e.preventDefault();
-    return false;
+      alert('Invalido');
   }
 }
 
-function error(elemento) {
-  elemento.className = "error";
-  elemento.focus();
+let campo20 = () => {
+  let nombre = document.getElementById('nombre').value;
+  let grupo = document.getElementById('grupo').value;
+
+  if(nombre.length <= 20 && grupo.length <= 20) {
+      console.log("correcto campo")
+      return true;
+  } else {
+      return false;
+  }
 }
 
-function limpiarError(elemento) {
-  elemento.className = "";
+let validaAnio = () => {
+  const regex = /^([0-9]{4})/
+  let anyo = document.getElementById('anio').value;
+  if(regex.test(anyo)) {
+      console.log("correcto anio")
+      return true;
+  } else {
+      return false;
+  }
+}
+
+let validaLocalizacion = () => {
+  let localizacion = document.getElementById('local').value;
+  localizacion = parseInt(localizacion);
+  if (localizacion === undefined || typeof(localizacion) === "number") {
+      console.log("correcto localización")
+      return true;
+  } else {
+      return
+  }
 }

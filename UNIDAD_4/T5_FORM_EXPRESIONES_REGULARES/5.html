@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T5</title>
+    <style>
+        form{
+            padding: 15px;
+        }
+        input,select{
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="POST" id="formulario">
+        <label for="fecha">Fecha de creación:</label><br>
+        <input type="text" id="fecha" name="fecha" placeholder="dd/mm/aaaa" required><br>
+        <label for="cocinero">Cocinero:</label><br>
+        <input type="text" id="cocinero" name="cocinero" placeholder="John"><br>
+        <label for="destinatario">Destinatario:</label><br>
+        <input type="text" id="destinatario" name="destinatario" placeholder="La Tagliatelle"><br>
+        <label for="gramos">Gramos:</label><br>
+        <input type="text" id="gramos" name="gramos"><br>
+        <label for="compo">Composición:</label><br>
+        <input type="text" id="compo" name="compo"><br>
+        <label for="cuenta">Nº Cuenta EEUU:</label><br>
+        <input type="text" id="cuenta" name="cuenta"><br><br>
+        <input type="button" id="submit" value="Validar">
+        <p id="valid" style="display: none;">Validado!</p>
+        <p id="invalid" style="display: none;">Invalido!</p>
+    </form>
+</body>
+</html>
