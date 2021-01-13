@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enfermero Tomares</title>
+    <script type="text/javascript" src="3.js"></script>
+    <style>
+        #error{
+            border: red;
+            background-color: red;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend>AÑADIR PACIENTE</legend>
+        <form action="vacuna.php" name="formulario" id="formulario" method="GET" style="padding: 15px;">
+            <label for="nombre">Nombre del paciente:</label><br>
+            <input type="text" id="nombre" placeholder="Pepito Domínguez" required><br>
+            <label for="dni">DNI:</label><br>
+            <input type="text" id="dni" placeholder="12.345.678-A" required><br>
+            <label for="vacuna">Fabricante de la vacuna:</label><br>
+            <select name="vacuna" id="vacuna" required>
+                <option value="selected" selected></option>
+                <option value="uno">Oxford-Astrazeneca</option>
+                <option value="dos">Moderna</option>
+                <option value="tres">Pfizer-Biontech</option>
+            </select><br>
+            <label for="pass">Contraseña:</label><br>
+            <input type="text" name="pass" id="pass" placeholder="**************" required><br><br>
+            <button type="submit">ENVIAR</button>
+            <button type="reset">RESET</button>
+        </form>
+    </fieldset>
+    <div id="error"></div>
+</body>
+</html>
