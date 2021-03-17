@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diferencias almacenamiento</title>
+    <script type="text/javascript">
+        function addInfo(){
+            var clave = document.getElementById('clave').value;
+            var valor = document.getElementById('valor').value;
+            sessionStorage.setItem(clave,valor);
+            localStorage.setItem(clave,valor);
+            mostrarInfo();
+        }
+        function mostrarInfo(){
+            var infoLocal = document.getElementById('localStorage');
+            localStorage.innerHTML = '';
+            for (var i = 0; i < localStorage.length; i++) {
+                var clave = localStorage.key(i);
+                var valor = localStorage.getItem(clave);
+                localStorage.innerHTML += '<div>'+ clave + '-' + valor + '</div>'; 
+            }
+            var infoSession = document.getElementById('sessionStorage');
+            sessionStorage.innerHTML = '';
+            for (var i = 0; i < sessionStorage.length; i++) {
+                var clave = sessionStorage.key(i);
+                var valor = sessionStorage.getItem(clave);
+                sessionStorage.innerHTML += '<div>'+ clave + '-' + valor + '</div>'; 
+            }
+        }
+        function limpiarInfo(){
+            var infoLocal = document.getElementById('localStorage');
+            infoLocal.innerHTML = 'La vista Local ha sido limpiada';
+            var infoSession = document.getElementById('sessionStorage');
+            infoSession.innerHTML = 'La vista Session ha sido limpiada';
+        }
+        function borrarTodo(){
+            sessionStorage.clear();
+            localStorage.clear();
+            mostrarInfo();
+        }
+    </script>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif;">
+    <form action="" id="formulario">
+        <h1>EJEMPLO DE ALMACENAMIENTO LOCAL CON HTML5</h1>
+        <label for="area">AREA DE ALMACENAMIENTO: </label>
+        <select>
+            <option value="local" selected>LOCAL</option>
+            <option value="session">SESSION</option>
+        </select><br>
+        <label for="clave">CLAVE: </label>
+        <input type="text" name="clave" id="clave"><br>
+        <label for="valor">VALOR: </label>
+        <input type="text" name="valor" id="valor"><br><br>
+        <input type="button" value="GUARDAR" onclick="addInfo()">
+        <input type="button" value="ELIMINAR" onclick="borrarTodo()">
+        <input type="button" value="REFRESCAR" onclick="limpiarInfo()">
+        <input type="button" value="COMPROBAR COMPATIBILIDAD DEL NAVEGADOR">
+    </form>
+    <div style="display: flex;flex-wrap: wrap;">
+        <div id="localStorage">
+            <h3>CLAVES Y VALORES EN LOCAL STORAGE: </h3><br>
+            <textarea name="textLocal" id="textLocal" cols="55" rows="10"></textarea>
+        </div>
+        <div id="sessionStorage" style="margin-left: 30px;">
+            <h3>CLAVES Y VALORES EN SESSION STORAGE: </h3><br>
+            <textarea name="textSession" id="textSession" cols="55" rows="10"></textarea>
+        </div>
+    </div>
+</body>
+</html>
