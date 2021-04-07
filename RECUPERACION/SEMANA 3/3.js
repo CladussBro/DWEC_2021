@@ -3,7 +3,7 @@ texto = texto.replace(/\s/g,"");
 var palindromo = texto.split("").reverse().toString();
 
 for (let i = 0; i < ((palindromo.length)-1); i++) {
-    palindromo = palindromo.replace(",","");    
+    palindromo = palindromo.replace(",","",".");    
 }
 if(texto === palindromo){
     alert('"'+texto+'" '+"es un palíndromo");
