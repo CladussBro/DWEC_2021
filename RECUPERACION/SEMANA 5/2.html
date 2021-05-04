@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="2.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<style>
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+</style>
+<body ondragstart="return false;">
+    <div class="container">
+        <div style="background-color: seagreen; color: seashell; text-align: center;">
+            <h1>INFORME INCIDENCIA</h1>
+        </div>
+        <div class="d-flex pt-3">
+            <div class="p-a1">
+                <img src="distribucion.jpg" id="foto" class="img-fluid">
+            </div>
+            <div class="p-2">
+                <form>
+                    <label for="tipo">Tipo de incidencia</label>
+                    <select name="selecc" id="selecc" class="selecc"  onchange="cambiar(this)">
+                        <option value="distribucion.jpg" selected>Distribución</option>
+                        <option value="oficina.jpg">Oficina</option>
+                        <option value="produccion.jpg">Producción</option>
+                    </select><br>
+                    <label for="serie">Número de serie</label>
+                    <input type="text" id="serie"><br><br>
+                    <input type="button" value="Mostrar descripción" onclick="drop()">
+                    <textarea cols = '50' rows = '3' name='text' id='text_id' class='form-control' style='resize:vertical; visibility:hidden'></textarea><br>
+                    <input type="button" value="Enviar datos" id="datos" onclick="validaSerie()">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
