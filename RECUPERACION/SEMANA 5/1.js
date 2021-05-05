@@ -6,10 +6,9 @@ window.onload = (function () {
     function checkKeyPress(key) {
         divs.style.backgroundColor = null
         if (key.keyCode == "40") {
-            console.log("tecla abajo presionada")
             let numero = parseInt(document.getElementById("aver").innerText)
             if (numero<=0) {
-                console.log("No se puede bajar de 0")
+                console.log("La velocidad no puede bajar de 0")
                 divs.style.backgroundColor = '#ff0000'
                 return
             }
@@ -17,10 +16,9 @@ window.onload = (function () {
             document.getElementById("aver").innerText = numero
         }
         if (key.keyCode == "38") {
-            console.log("tecla arriba presionada")
             let numero = parseInt(document.getElementById("aver").innerText)
             if (numero>=120) {
-                console.log("Has superado el limite de velocidad")
+                console.log("Multaso")
                 divs.style.backgroundColor = '#13DEDC'
                 return
             }
