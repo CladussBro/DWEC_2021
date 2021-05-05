@@ -1,7 +1,7 @@
 window.onload = (function () {
     var parrafo = document.getElementById("aver").innerHTML
     console.log(parrafo)
-    let divs = document.getElementById("diveaso")
+    let divs = document.getElementById("div")
     document.addEventListener("keydown", checkKeyPress, false)
     function checkKeyPress(key) {
         divs.style.backgroundColor = null
@@ -18,7 +18,7 @@ window.onload = (function () {
         if (key.keyCode == "38") {
             let numero = parseInt(document.getElementById("aver").innerText)
             if (numero>=120) {
-                console.log("Multaso")
+                alert("Multaso")
                 divs.style.backgroundColor = '#13DEDC'
                 return
             }
