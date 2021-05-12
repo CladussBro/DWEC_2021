@@ -1,22 +1,37 @@
-var num1 = document.getElementById("num1");
-var num2 = document.getElementById("num2");
-function sumar(){
-    var s = num1+num2;
-    doument.resultado.value = s;
-}
-sumar();
-function restar(){
-    var r = num1-num2;
-    doument.resultado.value = r;
-}
-restar();
-function multiplicar(){
-    var m = num1*num2;
-    doument.resultado.value = m;
-}
-multiplicar();
-function dividir(){
-    var d = num1/num2;
-    doument.resultado.value = d;
-}
-dividir();
+let n;
+var n1;
+var n2;
+let r;
+document.querySelector('#sumar').addEventListener('click', () =>{
+    n = '+';
+});
+document.querySelector('#restar').addEventListener('click', () =>{
+    n = '-';
+});
+document.querySelector('#multiplicar').addEventListener('click', () =>{
+    n = '*';
+});
+document.querySelector('#dividir').addEventListener('click', () =>{
+    n = '/';
+});
+
+document.querySelector('#calcular').addEventListener('click', () =>{
+    n1 = parseInt(document.querySelector('#num1').value);
+    n2 = parseInt(document.querySelector('#num2').value);
+    if(n == '+'){
+        r = n1 + n2;
+    }else if( n == '-'){
+        r = n1 - n2;
+    }else if(n == '*'){
+        r = n1 * n2;
+    }else if(n == '/'){
+        r = n1 / n2;
+    }
+    document.querySelector('#resultado').innerHTML = r;
+});
+
+function borrar(){
+    document.querySelector('#num1').value = 0;
+    document.querySelector('#num2').value = 0;
+    document.querySelector('#resultado').innerHTML = 0;
+}borrar();

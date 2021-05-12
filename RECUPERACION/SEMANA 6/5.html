@@ -5,26 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="5.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<style>
+    h1{
+        text-shadow: 2px 2px rgb(39, 92, 83);
+    }
+    button {
+        box-shadow: 1px 1px rgb(39, 92, 83);
+    }
+    button:hover {
+        background-color: rgb(39, 92, 83);
+        color: white;
+    }
+    tr>td>input, button, output{
+        border-radius: 5px;
+    }
+</style>
 </head>
-<body style="background-color: rgb(48, 40, 97);">
-    <table style="background-color: slateblue; width: 80%;">
-        <tr>
-            <td><input type="text" id="num1"></td>
-        </tr>
-        <tr>
-            <td><input type="button" value="+" id="sumar" onclick="sumar()"></td>
-            <td><input type="button" value="-" id="restar" onclick="restar()"></td>
-            <td><input type="button" value="X" id="multiplicar" onclick="multiplicar()"></td>
-            <td><input type="button" value="/" id="dividir" onclick="dividir()"></td>
-            <td><input type="button" value="CE" id="borrar" onclick="borrar()"></td>
-        </tr>
-        <tr>
-            <td><input type="text" id="num2"></td>
-        </tr>
-        <tr>
-            <td><input type="text" id="resultado" name="resultado"></td>
-        </tr>
-    </table>
+<body style="background-color: rgb(47, 112, 101);">
+    <div class="container mt-5 d-flex justify-content-center">
+        <table class="p-5 d-flex justify-content-center" style="background-color: rgb(80, 187, 151);border-radius: 15px; box-shadow: 5px 5px rgb(39, 92, 83);">
+            <tr><td><h1 style="color: white;">Calculadora</h1><hr></td></tr>
+            <tr>
+                <td class="p-3 text-center"><input type="text" id="num1"></td>
+            </tr>
+            <tr class="d-flex justify-content-center">
+                <td class="p-1"><button id="sumar">+</button></td>
+                <td class="p-1"><button id="restar">-</button></td>
+                <td class="p-1"><button id="multiplicar">x</button></td>
+                <td class="p-1"><button id="dividir">/</button></td>
+                <td class="p-1"><button id="borrar" onclick="borrar()">CE</button></td>
+            </tr>
+            <tr>
+                <td class="p-3 text-center"><input type="text" id="num2"></td>
+            </tr>
+            <tr class="d-flex justify-content-center">
+                <td class="pt-4 flex-grow-1"><button id="calcular"><h5">Resultado</h5></button></td>
+                <td class="p-1"><output  class="mt-4 pl-3 pr-3" id="resultado" style="color: white; background-color: rgb(47, 112, 101);"></output></td>
+            </tr>
+        </table>
+    </div>
 </body>
+<script src="5.js"></script>
 </html>
