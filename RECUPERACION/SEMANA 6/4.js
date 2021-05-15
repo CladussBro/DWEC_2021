@@ -1,76 +1,143 @@
-window.onload = init;
-window.onload = init;
+var lista = document.getElementsByTagName("LI");
 
-function init() {
-    botonEnvio = document.querySelector('[type="button"]');
-    nuevoItem = document.querySelector('[type="text"]');
-    listaTareas = document.getElementById("listaTareas");
-    botonEnvio.addEventListener("click", anadir);
-    setCookie("tarea",listaTareas,7);
+for (let i = 0; i < lista.length; i++) {
+    let span = document.createElement("SPAN");
+    let texto = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(texto);
+    lista[i].appendChild(span);
 }
 
-function anadir(e) {
-    evento = e || window.event;
-    if (nuevoItem.value == "") {
-        evento.preventDefault();
+var cerrar = document.getElementsByClassName("close");
+
+for (let i = 0; i < cerrar.length; i++) {
+    cerrar[i].onclick = function () {
+        let div = this.parentElement;
+        div.style.display = "none";
+    }
+}
+var listaTareas
+
+function anadirLista() {
+    let li = document.createElement("li");
+    let inputazo = document.getElementById("inputazo").value;
+    let t = document.createTextNode(inputazo);
+    li.appendChild(t);
+    if (inputazo === '') {
+        console.log("no se escribio nada");
     } else {
-        var lista = document.createElement("li");
-        lista.innerHTML = nuevoItem.value;
-        lista.addEventListener("dblclick", eliminarLi);
-        listaTareas.appendChild(lista);
-        nuevoItem.value = "";
+        document.getElementById("UL").appendChild(li).className = "sii";
+
     }
-}
-//elimina elemento de la lista
-function eliminarLi() {
-    this.parentNode.removeChild(this);
-    actualizarCookie();
+    document.getElementById("inputazo").value = "";
+
+    let span = document.createElement("SPAN");
+    let txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    li.appendChild(span);
+
+    for (i = 0; i < cerrar.length; i++) {
+        cerrar[i].onclick = function () {
+            let div = this.parentElement;
+            div.style.display = "none";
+        }
+    }
+
+    //   var listaTareas = document.getElementById("sii")
+    var listaTareas = document.getElementById("UL")
+
+    console.log(listaTareas)
+    console.log("aqui llego")
+    setCookie("tarea", inputazo, 7)
+
 }
 
-function setCookie(cname, cvalue, exdays) {
-    let d = new Date();
-    d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + "; " + expires;
+/*
+function setCookie(nombre, value, dias) {
+    var d = new Date()
+    d.setTime(d.getTime()+dias*24*60*60*1000)
+    let expiracion = "expires="+d.toUTCString()
+    var curCookie = nombre + "=" + value + "; " + expiracion
+ alert (curCookie)
+    document.cookie = curCookie
 }
+*/
 
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(";");
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == " ") c = c.substring(1);
-        if (c.indexOf(name) == 0)
-            return c.substring(name.length, c.length);
-    }
-    return "";
-}
-function checkCookie() {
-    var username = getCookie("tarea"); 
-    if (username != "") {
-    // Si no está vacío 
+
+function setCookie(nombre, value, dias) {
+    var d = new Date()
+    d.setTime(d.getTime() + dias * 24 * 60 * 60 * 1000)
+    let expiracion = "expires=" + d.toUTCString()
+
+    var prevCookie = valoresCookie("tarea")
+
+    if (prevCookie) {
+        var curCookie = nombre + "=" + prevCookie + "," + value + "; " + expiracion
     } else {
-    username = prompt("Introduzca su nombre:", ""); 
-    if (username != "" && username != null) {
-    setCookie("tarea", username, 7);
+        var curCookie = nombre + "=" + value + "; " + expiracion
     }
-    }
+
+    document.cookie = curCookie
+
 }
-checkCookie();
-function readCookie(name) {
-    var nameEQ = name + "="; 
+
+
+
+// Devuelve un Array con los valores de la cookie "tarea" separados por comas; p.e [cocinar, barrer]
+function valoresCookie(name) {
+
+    var nameEQ = name + "=";
     var ca = document.cookie.split(';');
-    for(var i=0;i < ca.length;i++) {
-      var c = ca[i];
-      while (c.charAt(0)==' ') c = c.substring(1,c.length);
-      if (c.indexOf(nameEQ) == 0) {
-        return decodeURIComponent( c.substring(nameEQ.length,c.length) );
-      }
-  
+
+    for (var i = 0; i < ca.length; i++) {
+
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) {
+            return decodeURIComponent(c.substring(nameEQ.length, c.length));
+        }
+
     }
+
     return null;
+
 }
-//actualiza la cookie
-function actualizarCookie(){
-    setCookie("tarea",listaTareas.innerHTML,7);
+
+//muestra en la carga inicial de la página, las tareas almacenadas en la cookie "tarea"
+function mostrarLista() {
+    var x = document.cookie
+
+    var strCookies = valoresCookie("tarea")
+
+    if (strCookies) {
+
+        var valorCookie = strCookies.split(',');
+
+        for (var j = 0; j < valorCookie.length; j++) {
+
+            let li = document.createElement("li");
+            let inputazo = valorCookie[j]
+
+
+            let t = document.createTextNode(inputazo);
+            li.appendChild(t);
+
+            //document.getElementById("UL").appendChild(li).className = "sii";
+            document.getElementById("UL").appendChild(li);
+
+            let span = document.createElement("SPAN");
+            let txt = document.createTextNode("\u00D7");
+            span.className = "close";
+            span.appendChild(txt);
+            li.appendChild(span);
+
+            for (i = 0; i < cerrar.length; i++) {
+                cerrar[i].onclick = function () {
+                    let div = this.parentElement;
+                    div.style.display = "none";
+                }
+            }
+        }
+    }
 }
