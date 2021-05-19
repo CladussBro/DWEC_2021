@@ -20,16 +20,16 @@ var listaTareas
 
 function anadirLista() {
     let li = document.createElement("li");
-    let inputazo = document.getElementById("inputazo").value;
-    let t = document.createTextNode(inputazo);
+    let anadir = document.getElementById("anadir").value;
+    let t = document.createTextNode(anadir);
     li.appendChild(t);
-    if (inputazo === '') {
+    if (anadir === '') {
         console.log("no se escribio nada");
     } else {
         document.getElementById("UL").appendChild(li).className = "sii";
 
     }
-    document.getElementById("inputazo").value = "";
+    document.getElementById("anadir").value = "";
 
     let span = document.createElement("SPAN");
     let txt = document.createTextNode("\u00D7");
@@ -49,7 +49,7 @@ function anadirLista() {
 
     console.log(listaTareas)
     console.log("aqui llego")
-    setCookie("tarea", inputazo, 7)
+    setCookie("tarea", anadir, 7)
 
 }
 
@@ -117,10 +117,10 @@ function mostrarLista() {
         for (var j = 0; j < valorCookie.length; j++) {
 
             let li = document.createElement("li");
-            let inputazo = valorCookie[j]
+            let anadir = valorCookie[j]
 
 
-            let t = document.createTextNode(inputazo);
+            let t = document.createTextNode(anadir);
             li.appendChild(t);
 
             //document.getElementById("UL").appendChild(li).className = "sii";
