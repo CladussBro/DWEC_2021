@@ -7,7 +7,6 @@ for (let i = 0; i < lista.length; i++) {
     span.appendChild(texto);
     lista[i].appendChild(span);
 }
-
 var cerrar = document.getElementsByClassName("close");
 
 for (let i = 0; i < cerrar.length; i++) {
@@ -16,21 +15,19 @@ for (let i = 0; i < cerrar.length; i++) {
         div.style.display = "none";
     }
 }
-var listaTareas
+var listaTareas;
 
 function anadirLista() {
     let li = document.createElement("li");
-    let anadir = document.getElementById("anadir").value;
-    let t = document.createTextNode(anadir);
+    let inputazo = document.getElementById("inputazo").value;
+    let t = document.createTextNode(inputazo);
     li.appendChild(t);
-    if (anadir === '') {
+    if (inputazo === '') {
         console.log("no se escribio nada");
     } else {
         document.getElementById("UL").appendChild(li).className = "sii";
-
     }
-    document.getElementById("anadir").value = "";
-
+    document.getElementById("inputazo").value = "";
     let span = document.createElement("SPAN");
     let txt = document.createTextNode("\u00D7");
     span.className = "close";
@@ -43,50 +40,27 @@ function anadirLista() {
             div.style.display = "none";
         }
     }
-
-    //   var listaTareas = document.getElementById("sii")
-    var listaTareas = document.getElementById("UL")
-
-    console.log(listaTareas)
-    console.log("aqui llego")
-    setCookie("tarea", anadir, 7)
-
+    var listaTareas = document.getElementById("UL");
+    console.log(listaTareas);
+    console.log("aqui llego");
+    setCookie("tarea", inputazo, 7);
 }
 
-/*
 function setCookie(nombre, value, dias) {
-    var d = new Date()
-    d.setTime(d.getTime()+dias*24*60*60*1000)
-    let expiracion = "expires="+d.toUTCString()
-    var curCookie = nombre + "=" + value + "; " + expiracion
- alert (curCookie)
-    document.cookie = curCookie
-}
-*/
-
-
-function setCookie(nombre, value, dias) {
-    var d = new Date()
-    d.setTime(d.getTime() + dias * 24 * 60 * 60 * 1000)
-    let expiracion = "expires=" + d.toUTCString()
-
-    var prevCookie = valoresCookie("tarea")
+    var d = new Date();
+    d.setTime(d.getTime() + dias * 24 * 60 * 60 * 1000);
+    let expiracion = "expires=" + d.toUTCString();
+    var prevCookie = valoresCookie("tarea");
 
     if (prevCookie) {
-        var curCookie = nombre + "=" + prevCookie + "," + value + "; " + expiracion
+        var curCookie = nombre + "=" + prevCookie + "," + value + "; " + expiracion;
     } else {
-        var curCookie = nombre + "=" + value + "; " + expiracion
+        var curCookie = nombre + "=" + value + "; " + expiracion;
     }
-
-    document.cookie = curCookie
-
+    document.cookie = curCookie;
 }
 
-
-
-// Devuelve un Array con los valores de la cookie "tarea" separados por comas; p.e [cocinar, barrer]
 function valoresCookie(name) {
-
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
 
@@ -97,35 +71,22 @@ function valoresCookie(name) {
         if (c.indexOf(nameEQ) == 0) {
             return decodeURIComponent(c.substring(nameEQ.length, c.length));
         }
-
     }
-
     return null;
-
 }
 
-//muestra en la carga inicial de la página, las tareas almacenadas en la cookie "tarea"
 function mostrarLista() {
-    var x = document.cookie
-
-    var strCookies = valoresCookie("tarea")
+    var x = document.cookie;
+    var strCookies = valoresCookie("tarea");
 
     if (strCookies) {
-
         var valorCookie = strCookies.split(',');
-
         for (var j = 0; j < valorCookie.length; j++) {
-
             let li = document.createElement("li");
-            let anadir = valorCookie[j]
-
-
-            let t = document.createTextNode(anadir);
+            let inputazo = valorCookie[j]
+            let t = document.createTextNode(inputazo);
             li.appendChild(t);
-
-            //document.getElementById("UL").appendChild(li).className = "sii";
             document.getElementById("UL").appendChild(li);
-
             let span = document.createElement("SPAN");
             let txt = document.createTextNode("\u00D7");
             span.className = "close";
@@ -140,4 +101,8 @@ function mostrarLista() {
             }
         }
     }
+}
+
+function primeraTarea(){
+    document.querySelector('li').onclick
 }
