@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    td>input, td>select{
+        width: 150px;;
+    }
+</style>
+<body>
+    <form id="reset">
+        <table style="padding: 20px;">
+            <tr>
+                <td><h2>KILL TEAM</h2></td>
+            </tr>
+            <tr>
+                <td><label for="name">Nombre:</label></td>
+                <td><input type="text" name="name" id="name"></td>
+            </tr>
+            <tr>
+                <td><label for="anio">Año:</label></td>
+                <td><input type="number" name="anio" id="anio"></td>
+            </tr>
+            <tr>
+                <td><label for="hab">Habilidades:</label></td>
+                <td><input type="text" name="hab" id="hab"></td>
+            </tr>
+            <tr>
+                <td><label for="tirada">Tirada para herir:</label></td>
+                <td><input type="text" name="tirada" id="tirada"></td>
+            </tr>
+            <tr>
+                <td><label for="hab">Habilidades:</label></td>
+                <td><select name="opt" id="opt">
+                    <option hidden></option>
+                    <option value="lider">LÍDER</option>
+                    <option value="combate">COMBATE</option>
+                    <option value="comunicaciones">COMUNICACIONES</option>
+                    <option value="demoliciones">DEMOLICIONES</option>
+                    <option value="fanatico">FANÁTICO</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td><label for="pass">Password:</label></td>
+                <td><input type="password" name="pass" id="pass"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Reset" onclick="resetear()"></td>
+                <td><input type="button" value="Enviar" id="enviar" onclick="validaTodas()"></td>
+            </tr>
+        </table>
+        <div id="errores"></div>
+    </form>
+</body>
+<script src="1.js"></script>
+</html>
