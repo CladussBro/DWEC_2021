@@ -8,23 +8,16 @@ document.getElementById("filmsFetch").addEventListener("click", loadFilmsFetch);
 document.getElementById("people").addEventListener("click", loadPeople);
 
 function loadFilmsXHR() {
-    
     let xhr = new XMLHttpRequest();
-
     xhr.onreadystatechange = function () {
-
         if (xhr.readyState == 4 && xhr.status == 200) {
-    
             let result = JSON.parse(xhr.responseText);
-    
             processAndInsertFilms(result);
-
             document.getElementById("results").innerHTML =
                 "Respuesta de films recibida (XMLHttpRequest)";
             console.log("Respuesta de films recibida (XMLHttpRequest)")   
         }
     };
-
     xhr.open("GET", "https://ghibliapi.herokuapp.com/films", true);
     xhr.send();
 }

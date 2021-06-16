@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Recuperación Cliente</title>
+</head>
+<body>
+    <h2>Amazona</h2>
+    <h4>Plan de fidelización: Colección de vehículos en miniatura</h4>
+    <input type="button" value="Carga vehículos" onclick="todo()"><br>
+    <div id="tabla"></div>
+    <br><br>
+    <fieldset>
+        <legend>Registrar envío</legend>
+        <form action="">
+            <input type="checkbox">
+            <label>Entrega en 24/48 horas</label><br>
+            <p id="errorD"></p>
+            <label>Destinatario</label>
+            <input type="text" id="destinatario" name="destinatario"><br>
+            <p id="errorE"></p>
+            <label>Etiqueta</label>
+            <input type="text" id="etiqueta"><br><br>
+            <select>Edición
+                <option value="limitada" selected>Limitada</option>
+                <option value="best_coll">Best Collections</option>
+            </select>
+            <input type="button" value="Enviar" id="enviar" onclick="validaTodas()">
+        </form>
+    </fieldset>
+    <div id="cookie"></div>
+    <script src="1.js"></script>
+</body>
+</html>

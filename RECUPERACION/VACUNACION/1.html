@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="padding: 15px;">
+    <form>
+        <label for="ccaa">CC.AA.:</label>
+        <select name="ccaa" id="ccaa">
+        </select>
+        <label for="" >D. Entregadas: </label>
+        <input type="number" name="" id="dosis_entregadas">
+        <label for="">D. Administradas: </label>
+        <input type="number" name="" id="dosis_administradas">
+        <label for="">D. Completada: </label>
+        <input type="number" name="" id="dosis_completas">
+        <label for="">P. Entregadas: </label>
+        <input type="number" name="" id="porcentaje_entregadas">
+        <label for="">P. Administradas: </label>
+        <input type="number" name="" id="porcentaje_administradas">
+        <label for="">P. Completas: </label>
+        <input type="number" name="" id="porcentaje_completa">
+        <input type="button" id="modificar" value="Modificar Datos">
+    </form>
+    <hr>
+    <h4>Resultados</h4>
+    <div id="div"></div>
+    <hr>
+    <h2>Tabla de vacunacion</h2><br><br>
+    <input type="button" onclick="XML()" id="bXML" value="Cargar datos vacunacion (XMLHttpRequest)">
+    <input type="button" onclick="Fetch()" id="bFetch" value="Cargar datos vacunacion (Fetch)">
+    <div id="tabla"></div>
+    <script src="1.js"></script>
+</body>
+</html>
